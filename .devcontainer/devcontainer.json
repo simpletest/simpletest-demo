@@ -1,0 +1,35 @@
+{
+	"name": "SimpleTest-Demo-DevBox",
+	"build": {
+		"dockerfile": "./Dockerfile",
+		"context": "."
+	},
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"terminal.integrated.profiles.linux": {
+					"zsh": {
+						"path": "/bin/zsh"
+					}
+				}
+			},
+			"vscode": {
+				"extensions": [
+					"xdebug.php-debug",
+					"xdebug.php-pack",
+					"devsense.phptools-vscode"
+				]
+			}
+		}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// 8080 webserver
+	// 9000 legacy xdebug port
+	// 9003 xdebug3 port
+	"forwardPorts": [
+		8080, 9000, 9003
+	],
+	"remoteUser": "root"
+}
